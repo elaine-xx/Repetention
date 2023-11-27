@@ -6,18 +6,20 @@ int textHeight = 100;
 float daySizeX,daySizeY;
 float paddingX = 50;
 float paddingY = 100;
-int month = 3;
-int year = 2023;
+int month = 12;
+int year = 2034;
 Day[][] Days;
 
 void setup() {
-  size(1000, 600);
-  boolean leapYear = (year % 4 == 0) && (!(year % 100 == 0));
+  size(1000, 600);  
   
-   if (month == 2 && !leapYear && (weekMonthStarter(year, month) == 1)) //If not leap year february that starts on monday
-    weeks = 4;
-  else
+   if (weekMonthStarter(year, month) + lengthOfMonth(year, month) > 35) //If total amt of days exceeds five weeks.
+    weeks = 6;
+  else if(weekMonthStarter(year, month) + lengthOfMonth(year, month) > 28) //If total amt of days exceeds fivefour weeks.
     weeks = 5;
+  else
+    weeks = 4;
+  
   daySizeX = (width-2*paddingX)/days;
   daySizeY = (height-2*paddingY)/weeks;
   Days = new Day[days][weeks];

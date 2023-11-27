@@ -149,7 +149,7 @@ String nameOfMonth(int month) {
     monthName = "November";
 
   if (month == 12)
-    monthName = "december";
+    monthName = "December";
 
   return monthName;
 }
